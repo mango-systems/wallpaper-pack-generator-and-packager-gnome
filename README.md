@@ -10,3 +10,11 @@ sudo chmod +x build compile
 ```
 
 Output folder = ```COMPILED_DEB```
+
+## Dependencies
+```
+- python3
+```
+
+---
+By MandraSaptak Mandal
