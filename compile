@@ -1,7 +1,7 @@
 #!/bin/bash
 ## THIS SCRIPT IS VERY MESSY (THERE ARE BETTER WAYS TO DO THIS)
 INPUT_DIR="wallpaper-packs"
-PKG_VER="0.1"
+PKG_VER="0.2"
 PKG_NAME="msmwallpaper_${PKG_VER}"
 
 mkdir ./output_wallpaper
@@ -34,8 +34,6 @@ if [ "$(ls -A ./$INPUT_DIR)" ]; then
     # PKG CREATION
     mkdir -p ./$PKG_NAME/DEBIAN
 
-
-
     touch ./$PKG_NAME/DEBIAN/control
 
 tee -a ./$PKG_NAME/DEBIAN/control <<EOF
@@ -57,4 +55,3 @@ EOF
 else
     echo "./$INPUT_DIR is Empty"
 fi
-
