@@ -10,52 +10,50 @@ if [ "$(ls -A ./$INPUT_DIR)" ]; then
     cd ./$INPUT_DIR
     # work directory is now set to 'wallpaper-directory'
     
-    for i in *;
-    do
-        ./../build $i
+        for i in *;
+        do
+            ./../build $i
 
-        mv $i ../output_wallpaper
-        mv $i.xml ../output_xml ## all folders are removed, so no need to add exclude
+            mv $i ../output_wallpaper
+            mv $i.xml ../output_xml ## all folders are removed, so no need to add exclude
+        done
 
-        # mkdir ../output || true # use this to output the pkgs
-        # mv $i ../output # wallpapers folders to output, but keeps the xml in work dir
- 
-    done
-cd ./.. #now work dir is root
-# CREATING ABSOLUTE PATHS FOR DEB
-mkdir ./deb_compile
-cd ./deb_compile #now i am in deb compile
-mkdir -p ./$PKG_NAME/usr/share/backgrounds
-mkdir -p ./$PKG_NAME/usr/share/gnome-background-properties
-mv ./../output_wallpaper/* ./$PKG_NAME/usr/share/backgrounds
-mv ./../output_xml/* ./$PKG_NAME/usr/share/gnome-background-properties
+    cd ./.. #now work dir is root
 
-## NOW CREATE A CONTROL FILE
+    # CREATING ABSOLUTE PATHS FOR DEB
+    mkdir ./deb_compile
+    cd ./deb_compile #now i am in deb compile
+    mkdir -p ./$PKG_NAME/usr/share/backgrounds
+    mkdir -p ./$PKG_NAME/usr/share/gnome-background-properties
+    mv ./../output_wallpaper/* ./$PKG_NAME/usr/share/backgrounds
+    mv ./../output_xml/* ./$PKG_NAME/usr/share/gnome-background-properties
+
+    ## NOW CREATE A CONTROL FILE
 
 
-# PKG CREATION
-mkdir -p ./$PKG_NAME/DEBIAN
+    # PKG CREATION
+    mkdir -p ./$PKG_NAME/DEBIAN
 
 
 
-touch ./$PKG_NAME/DEBIAN/control
+    touch ./$PKG_NAME/DEBIAN/control
 
-tee -a ./$PKG_NAME/DEBIAN/control <<EOF
-Package: msm-wallpapers
-Version: $PKG_VER
-Maintainer: MSM <dev.msm74588@gmail.com>
-Architecture: all
-Description: wallpaper for msm linux
-EOF
+    tee -a ./$PKG_NAME/DEBIAN/control <<EOF
+    Package: msm-wallpapers
+    Version: $PKG_VER
+    Maintainer: MSM <dev.msm74588@gmail.com>
+    Architecture: all
+    Description: wallpaper for msm linux
+    EOF
 
-dpkg-deb --build $PKG_NAME
+    dpkg-deb --build $PKG_NAME
 
-mkdir ../COMPILED_DEB
-mv $PKG_NAME.deb ../COMPILED_DEB/
+    mkdir ../COMPILED_DEB
+    mv $PKG_NAME.deb ../COMPILED_DEB/
 
-rm -rf ../output_wallpaper ../output_xml ../deb_compile
+    rm -rf ../output_wallpaper ../output_xml ../deb_compile
 
-echo "[PKG BUILD COMPLETE!!]"
+    echo "[PKG BUILD COMPLETE!!]"
 else
     echo "./$INPUT_DIR is Empty"
 fi
