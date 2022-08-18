@@ -38,13 +38,13 @@ if [ "$(ls -A ./$INPUT_DIR)" ]; then
 
     touch ./$PKG_NAME/DEBIAN/control
 
-    tee -a ./$PKG_NAME/DEBIAN/control <<EOF
-    Package: msm-wallpapers
-    Version: $PKG_VER
-    Maintainer: MSM <dev.msm74588@gmail.com>
-    Architecture: all
-    Description: wallpaper for msm linux
-    EOF
+tee -a ./$PKG_NAME/DEBIAN/control <<EOF
+Package: msm-wallpapers
+Version: $PKG_VER
+Maintainer: MSM <dev.msm74588@gmail.com>
+Architecture: all
+Description: wallpaper for msm linux
+EOF
 
     dpkg-deb --build $PKG_NAME
 
