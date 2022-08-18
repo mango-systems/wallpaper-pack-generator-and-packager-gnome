@@ -1,8 +1,8 @@
 #!/bin/bash
 ## THIS SCRIPT IS VERY MESSY (THERE ARE BETTER WAYS TO DO THIS)
 INPUT_DIR="wallpaper-packs"
-PKG_NAME="msmwallpaper"
-
+PKG_VER="0.1"
+PKG_NAME="msmwallpaper_${PKG_VER}"
 
 mkdir ./output_wallpaper
 mkdir ./output_xml
@@ -42,7 +42,7 @@ touch ./$PKG_NAME/DEBIAN/control
 
 tee -a ./$PKG_NAME/DEBIAN/control <<EOF
 Package: msm-wallpapers
-Version: 0.1
+Version: $PKG_VER
 Maintainer: MSM <dev.msm74588@gmail.com>
 Architecture: all
 Description: wallpaper for msm linux
