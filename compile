@@ -31,7 +31,7 @@ mv ./../output_wallpaper/* ./$PKG_NAME/usr/share/backgrounds
 mv ./../output_xml/* ./$PKG_NAME/usr/share/gnome-background-properties
 
 ## NOW CREATE A CONTROL FILE
-rm -rf output_wallpaper output_xml
+
 
 # PKG CREATION
 mkdir -p ./$PKG_NAME/DEBIAN
@@ -53,6 +53,7 @@ dpkg-deb --build $PKG_NAME
 mkdir ../COMPILED_DEB
 mv $PKG_NAME.deb ../COMPILED_DEB/
 
+rm -rf ../output_wallpaper ../output_xml ../deb_compile
 
 echo "[PKG BUILD COMPLETE!!]"
 else
