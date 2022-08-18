@@ -1,7 +1,7 @@
 # Wallpaper Deb pack generator
 place wallpaper folder in $INPUT_DIR
 
-Default=```wallpaper-packs```
+Default i$INPUT_DIR = ```wallpaper-packs```
 
 
 ```
@@ -9,4 +9,4 @@ sudo chmod +x build compile
 ./compile
 ```
 
-OUTPUT FOLDER = COMPILED DEB
+Output folder = ```COMPILED_DEB```
