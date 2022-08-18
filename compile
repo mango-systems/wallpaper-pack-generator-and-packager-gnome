@@ -1,8 +1,8 @@
 #!/bin/bash
 ## THIS SCRIPT IS VERY MESSY (THERE ARE BETTER WAYS TO DO THIS)
 INPUT_DIR="wallpaper-packs"
-PKG_VER="0.2"
-PKG_NAME="msmwallpaper_${PKG_VER}"
+PKG_VER="1.0"
+PKG_NAME="msmwallpaper-minimal-and-asthetics_${PKG_VER}"
 
 mkdir ./output_wallpaper
 mkdir ./output_xml
@@ -37,7 +37,7 @@ if [ "$(ls -A ./$INPUT_DIR)" ]; then
     touch ./$PKG_NAME/DEBIAN/control
 
 tee -a ./$PKG_NAME/DEBIAN/control <<EOF
-Package: msm-wallpapers
+Package: $PKG_NAME
 Version: $PKG_VER
 Maintainer: MSM <dev.msm74588@gmail.com>
 Architecture: all
