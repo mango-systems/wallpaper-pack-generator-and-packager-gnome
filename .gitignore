@@ -2,3 +2,4 @@ COMPILED_DEB
 deb_compile
 output_xml
 output_wallpaper
+wallpaper-packs/*
